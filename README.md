@@ -31,4 +31,9 @@ The system processes user input, understands emotional and contextual cues, and 
 
 This chatbot is intended **for educational and experimental purposes only**. It does not provide medical advice, diagnosis, or treatment. Users experiencing mental health issues should seek help from qualified professionals.
 
+🖥 User Interface
+
+The chatbot features a clean and calming web interface built with Gradio, designed to provide a safe and comfortable user experience.
+It includes a real-time chat window, message input field, send and clear chat buttons, and a visually soothing theme that aligns with the project’s mental health focus.
+<img width="1920" height="1080" alt="Screenshot 2025-12-18 020704" src="https://github.com/user-attachments/assets/617092a4-1295-4fdd-95a5-75d292742b37" />
 
