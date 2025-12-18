@@ -1,35 +1,68 @@
+## 🌸 InnerBloom — AI Mental Health Support Chatbot
+
+**InnerBloom** is an end-to-end AI-powered mental health support chatbot built using **Mistral-7B-Instruct** and fine-tuned with **LoRA (Low-Rank Adaptation)**.
+The project combines **instruction fine-tuning**, **retrieval-augmented generation (RAG)**, and a **Gradio-based conversational UI** to provide empathetic, context-aware responses in a safe and user-friendly environment.
+
+---
+
+## 🚀 Key Features
+
+* **LoRA Fine-Tuning (4-bit)**
+  Efficient fine-tuning of Mistral-7B using PEFT and BitsAndBytes, enabling training on limited GPU resources.
+
+* **Instruction-Tuned Dataset Pipeline**
+  Custom JSON → JSONL conversion for supervised instruction tuning with masked prompt tokens.
+
+* **Retrieval-Augmented Generation (RAG)**
+  Uses **ChromaDB** with **Sentence-Transformers embeddings** to retrieve relevant knowledge from datasets and documents.
+
+* **Memory-Efficient Inference**
+  Automatic device mapping, 4-bit quantization, and CPU/GPU offloading for smooth inference on Kaggle.
+
+* **Interactive Chat Interface**
+  A clean, styled **Gradio chat UI** designed as a safe space for emotional support and conversation.
+
+* **Modular & Production-Ready**
+  Includes training scripts, inference loaders, dataset processing, vector storage, and optional FastAPI integration.
+
+---
+
+## 🧠 Architecture Overview
+
+* **Base Model:** `mistralai/Mistral-7B-Instruct-v0.2`
+* **Fine-Tuning:** LoRA adapters (PEFT)
+* **Quantization:** 4-bit (BitsAndBytes)
+* **Vector Store:** ChromaDB
+* **Embeddings:** all-MiniLM-L6-v2
+* **UI:** Gradio
+* **Deployment Ready:** FastAPI compatible
+
+---
+
+## 📂 Project Pipeline
+
+1. Convert raw dataset to instruction-tuning JSONL format
+2. Store dataset knowledge in Chroma vector database
+3. Tokenize and prepare supervised fine-tuning data
+4. Train LoRA adapters on Mistral-7B (4-bit)
+5. Load base model + LoRA adapters for inference
+6. Serve responses via Gradio chat interface
+
+---
+
+## 🎯 Use Case
+
+InnerBloom is designed to demonstrate how **large language models can be adapted for empathetic, domain-specific conversations** while remaining efficient, scalable, and deployable on limited hardware.
+It is suitable for educational, research, and proof-of-concept applications in **AI-assisted mental health support**.
+
+---
+
+## ⚠️ Disclaimer
+
+This project is intended for **research and educational purposes only** and does **not replace professional mental health care**.
 
 
-## 🧠 Psychotherapist Chatbot
 
-This project implements an **AI-powered Psychotherapist Chatbot** designed to simulate supportive, therapeutic-style conversations using Natural Language Processing (NLP) and machine learning techniques. The chatbot aims to provide empathetic responses, emotional support, and basic mental-health-oriented dialogue in a safe and controlled manner.
-
-The system processes user input, understands emotional and contextual cues, and generates appropriate responses that follow a psychotherapy-inspired conversational approach. While it is **not a replacement for professional mental health care**, it demonstrates how AI can be used to assist, guide, and support users through conversational interaction.
-
-### ✨ Key Features
-
-* NLP-based text preprocessing and understanding
-* Context-aware conversational responses
-* Emotionally supportive and empathetic dialogue generation
-* Interactive chatbot interface implemented in Python
-* Modular and extensible design for future improvements
-
-### 🛠 Technologies Used
-
-* Python
-* NLP libraries (e.g., NLTK / spaCy / Transformers – depending on your implementation)
-* Machine Learning / Deep Learning models
-* Jupyter Notebook for development and experimentation
-
-### 🎯 Project Objectives
-
-* Demonstrate the application of NLP in conversational AI
-* Explore AI-assisted mental health support systems
-* Build an educational prototype for research and learning purposes
-
-### ⚠️ Disclaimer
-
-This chatbot is intended **for educational and experimental purposes only**. It does not provide medical advice, diagnosis, or treatment. Users experiencing mental health issues should seek help from qualified professionals.
 
 🖥 User Interface
 
