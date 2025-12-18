@@ -70,3 +70,143 @@ The chatbot features a clean and calming web interface built with Gradio, design
 It includes a real-time chat window, message input field, send and clear chat buttons, and a visually soothing theme that aligns with the project’s mental health focus.
 <img width="1865" height="920" alt="image" src="https://github.com/user-attachments/assets/acb3c0bf-7cb3-4980-98b9-bceadce1ac3c" />
 
+---
+
+## ▶️ How to Run the Project
+
+This project can be run **locally** or on **Kaggle**.
+Below are the recommended steps to get the chatbot up and running.
+
+---
+
+### 🔹 1. Install Dependencies
+
+Make sure you have **Python 3.9+** installed, then run:
+
+```bash
+pip install -U transformers accelerate bitsandbytes datasets peft \
+sentence-transformers langchain langchain-community chromadb \
+pypdf fastapi uvicorn gradio
+```
+
+---
+
+### 🔹 2. Prepare the LoRA Adapter
+
+You have two options:
+
+#### ✅ Option A: Use the Pretrained LoRA Adapter (Recommended)
+
+1. Download the LoRA adapter ZIP:
+
+   ```
+   mistral_lora_adapter.zip
+   ```
+2. Extract it into:
+
+   ```bash
+   ./mistral_lora_adapter
+   ```
+
+#### 🔁 Option B: Train the LoRA Adapter Yourself
+
+Run the training pipeline:
+
+```bash
+python train_lora.py
+```
+
+This will:
+
+* Convert the dataset to instruction-tuning format
+* Tokenize the data
+* Train LoRA adapters on Mistral-7B (4-bit)
+* Save the adapter weights locally
+
+---
+
+### 🔹 3. Load Model for Inference
+
+The base model and LoRA adapter are loaded automatically with:
+
+* 4-bit quantization
+* Automatic device mapping (CPU / GPU)
+* Memory offloading if needed
+
+No manual configuration is required.
+
+---
+
+### 🔹 4. Run the Chat Interface (Gradio)
+
+Start the chatbot UI by running:
+
+```bash
+python app.py
+```
+
+or inside a notebook:
+
+```python
+demo.launch()
+```
+
+Once launched, open the local Gradio URL in your browser.
+
+---
+
+### 🔹 5. Example Prompt
+
+```text
+I feel anxious and overwhelmed. Can you help me calm down?
+```
+
+The model will respond using:
+
+* Fine-tuned LoRA knowledge
+* Retrieved context from ChromaDB
+* Empathetic instruction-following behavior
+
+---
+
+## 🖥️ Hardware Requirements
+
+* **GPU (Recommended):**
+
+  * NVIDIA GPU with 12GB+ VRAM
+  * Works on Kaggle T4 / P100 using 4-bit quantization
+
+* **CPU Mode:**
+
+  * Supported via automatic offloading (slower)
+
+---
+
+## 🧩 Optional: API Deployment (FastAPI)
+
+To run the API server:
+
+```bash
+uvicorn api:app --host 0.0.0.0 --port 8000
+```
+
+Then send POST requests to the inference endpoint.
+
+---
+
+## 🛠️ Troubleshooting
+
+* **Out of memory error:**
+
+  * Ensure `load_in_4bit=True`
+  * Reduce `max_new_tokens`
+  * Enable offloading
+
+* **Model not loading:**
+
+  * Verify LoRA adapter path
+  * Check that Mistral model access is enabled
+
+
+
+
