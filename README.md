@@ -35,5 +35,5 @@ This chatbot is intended **for educational and experimental purposes only**. It 
 
 The chatbot features a clean and calming web interface built with Gradio, designed to provide a safe and comfortable user experience.
 It includes a real-time chat window, message input field, send and clear chat buttons, and a visually soothing theme that aligns with the project’s mental health focus.
-<img width="1920" height="1080" alt="Screenshot 2025-12-18 020704" src="https://github.com/user-attachments/assets/617092a4-1295-4fdd-95a5-75d292742b37" />
+<img width="1865" height="920" alt="image" src="https://github.com/user-attachments/assets/acb3c0bf-7cb3-4980-98b9-bceadce1ac3c" />
 
